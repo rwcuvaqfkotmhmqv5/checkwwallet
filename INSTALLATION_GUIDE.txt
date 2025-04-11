@@ -1,0 +1,55 @@
+CRYPTOCURRENCY WALLET BRUTE FORCE TOOL
+INSTALLATION GUIDE
+==================================
+
+If you're experiencing issues with missing modules when running the executable version, 
+please follow these troubleshooting steps:
+
+1. MISSING MODULE: bip_utils
+   - This is a common issue with PyInstaller-packaged applications
+   - The bip_utils module is required for wallet generation functionality
+
+SOLUTION OPTIONS:
+
+OPTION 1: INSTALL AND RUN DIRECTLY (RECOMMENDED)
+------------------------------------------------
+1. Install Python 3.6 or higher from python.org
+2. Open a command prompt or terminal
+3. Install the required packages:
+   > pip install bip-utils requests
+   > pip install pyqt5  (only needed for the PyQt5 GUI version)
+4. Run the application directly:
+   > python crypto_wallet_gui.py  (for PyQt5 GUI)
+   > python crypto_wallet_gui_tkinter.py  (for Tkinter GUI)
+
+OPTION 2: REBUILD THE EXECUTABLE
+--------------------------------
+The build scripts have been updated to explicitly include the bip_utils module.
+If you still want to use an executable version:
+
+1. Install Python and required packages (see Option 1)
+2. Install PyInstaller:
+   > pip install pyinstaller
+3. Run the build script:
+   > python build_gui_exe.py  (for PyQt5 GUI)
+   > python build_tkinter_gui_exe.py  (for Tkinter GUI)
+4. The new executable should properly include all dependencies
+
+OPTION 3: MANUAL DEPENDENCY RESOLUTION
+--------------------------------------
+If you're familiar with PyInstaller, you can manually add the missing module:
+1. Create a customized .spec file:
+   > pyinstaller --name=Crypto_Wallet_GUI --onefile crypto_wallet_gui.py
+2. Edit the .spec file to include hidden imports:
+   hiddenimports=['bip_utils', 'bip_utils.bip.bip39', 'bip_utils.bip.bip44']
+3. Build using the .spec file:
+   > pyinstaller Crypto_Wallet_GUI.spec
+
+FOR ADVANCED USERS:
+------------------
+The root cause of this issue is that PyInstaller sometimes can't detect all dependencies,
+especially for packages with complex submodule structures like bip_utils.
+
+For more information, visit: https://pyinstaller.org/en/stable/when-things-go-wrong.html
+
+Need further help? Please consult the full documentation in FINAL_USER_GUIDE.md

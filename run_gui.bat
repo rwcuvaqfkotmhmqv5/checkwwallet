@@ -1,0 +1,3 @@
+@echo off
+echo Starting Cryptocurrency Wallet Brute Force Tool (GUI)...
+start Crypto_Wallet_Brute_Force_GUI.exe
