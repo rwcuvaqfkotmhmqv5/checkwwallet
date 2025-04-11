@@ -1,3 +1,4 @@
-- bip-utils (Version 2.9.0 or higher)
-- requests
-- PyQt5 (only for PyQt5 GUI version)
+PyQt5 (only for PyQt5 GUI version)
+bip-utils>=2.9.0
+requests
+Flask
