@@ -1,4 +1,4 @@
-PyQt5 (only for PyQt5 GUI version)
+PyQt5
 bip-utils>=2.9.0
 requests
 Flask
